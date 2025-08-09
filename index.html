@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of an OpenStack Architect with over 15 years of experience in cloud, virtualization, and DevOps." />
   <title>OpenStack Architect Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #000000;
-      --accent-color: #00D676;
-      --text-color: #FFFFFF;
+      --bg-color: #1a1a1a; /* Dark gray instead of black */
+      --accent-color: #00ff99;
+      --text-color: #ffffff;
+      --card-bg: #222; /* Slightly lighter gray for cards */
     }
     * {
       margin: 0;
@@ -22,38 +23,54 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
+      overflow-x: hidden;
     }
     header {
-      padding: 2rem;
+      padding: 4rem 2rem;
       text-align: center;
-      background: var(--bg-color);
-      border-bottom: 2px solid var(--accent-color);
+      background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
     }
     header p {
       color: var(--accent-color);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+    }
+    header .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      margin-top: 1.5rem;
+      background: var(--accent-color);
+      color: #000;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    header .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,255,153,0.4);
     }
     section {
-      padding: 3rem 5%;
+      padding: 4rem 8%;
     }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: var(--text-color);
-      color: var(--bg-color);
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      margin-top: 1rem;
-      transition: background 0.3s, color 0.3s;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-color);
+      text-align: center;
+      position: relative;
     }
-    .btn:hover {
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
       background: var(--accent-color);
-      color: var(--text-color);
+      margin: 0.5rem auto 0;
     }
     .skills-grid, .timeline {
       display: grid;
@@ -62,48 +79,31 @@
     .skills-grid {
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
-    .skill {
-      background: #111;
+    .card {
+      background: var(--card-bg);
       padding: 1.5rem;
-      border-left: 4px solid var(--accent-color);
-      border-radius: 6px;
+      border-radius: 10px;
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     }
-    .skill h3 {
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0px 8px 20px rgba(0, 255, 153, 0.4);
+      background-color: #2a2a2a;
+    }
+    .card h3 {
       color: var(--accent-color);
       margin-bottom: 0.5rem;
     }
-    .skill:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0px 8px 20px rgba(0, 214, 118, 0.4);
-      background-color: #1a1a1a;
-    }
     .timeline {
-      border-left: 2px solid var(--accent-color);
-      padding-left: 1rem;
-    }
-    .timeline-item {
-      margin-bottom: 2rem;
-      background: #111;
-      padding: 1.5rem;
-      border-radius: 6px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    }
-    .timeline-item h3 {
-      margin-bottom: 0.3rem;
-      color: var(--accent-color);
-    }
-    .timeline-item:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0px 8px 20px rgba(0, 214, 118, 0.4);
-      background-color: #1a1a1a;
+      grid-template-columns: 1fr;
     }
     footer {
-      background: #111;
+      background: #2a2a2a;
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem;
       font-size: 0.9rem;
-      border-top: 2px solid var(--accent-color);
+      border-top: 1px solid #3a3a3a;
+      color: #aaa;
     }
     a {
       color: var(--accent-color);
@@ -123,29 +123,29 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Cloud enthusiast and OpenStack architect with over 15 years of experience in designing, deploying, and maintaining large-scale private and public cloud infrastructures. Skilled in aligning infrastructure solutions with business goals while mitigating operational risks.</p>
+    <p style="text-align:center;max-width:800px;margin:auto;">Cloud enthusiast and OpenStack architect with over 15 years of experience in designing, deploying, and maintaining large-scale private and public cloud infrastructures. Skilled in aligning infrastructure solutions with business goals while mitigating operational risks.</p>
   </section>
 
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-grid">
-      <div class="skill">
+      <div class="card">
         <h3>Cloud & Virtualization</h3>
         <p>OpenStack, Kubernetes, CEPH, VMware, NFV, Containers</p>
       </div>
-      <div class="skill">
+      <div class="card">
         <h3>DevOps Tools</h3>
         <p>Ansible, ArgoCD/GitOps, Helm, Harbor, Terraform, Jenkins, SaltStack</p>
       </div>
-      <div class="skill">
+      <div class="card">
         <h3>Languages & Scripting</h3>
         <p>Python, Bash</p>
       </div>
-      <div class="skill">
+      <div class="card">
         <h3>Monitoring</h3>
         <p>Prometheus, Grafana</p>
       </div>
-      <div class="skill">
+      <div class="card">
         <h3>Certifications</h3>
         <p>CKA, CKAD, CKS, RHCE</p>
       </div>
@@ -155,19 +155,19 @@
   <section id="experience">
     <h2>Experience</h2>
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="card">
         <h3>RackSpace - Cloud Architect (Sep 2021 – Present)</h3>
         <p>GitOps strategy with ArgoCD, CEPH tuning, cross-cloud integration, Terraform automation, monitoring solutions.</p>
       </div>
-      <div class="timeline-item">
+      <div class="card">
         <h3>Reliance Jio Ltd. - SME DevOps (Jul 2020 – Sep 2021)</h3>
         <p>DevOps transformations, automation pipelines, and infrastructure scalability improvements.</p>
       </div>
-      <div class="timeline-item">
+      <div class="card">
         <h3>Cisco Systems - Software Engineer (Mar 2018 – Jul 2020)</h3>
         <p>Cloud automation, OpenStack deployments, orchestration improvements.</p>
       </div>
-      <div class="timeline-item">
+      <div class="card">
         <h3>Red Hat India - Various Roles (2011 – 2018)</h3>
         <p>Solutions architecture, training, enterprise deployments.</p>
       </div>
@@ -176,9 +176,9 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:email@example.com">email@example.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/example" target="_blank">linkedin.com/in/example</a></p>
-    <p>GitHub: <a href="https://github.com/example" target="_blank">github.com/example</a></p>
+    <p style="text-align:center;">Email: <a href="mailto:email@example.com">email@example.com</a></p>
+    <p style="text-align:center;">LinkedIn: <a href="https://linkedin.com/in/example" target="_blank">linkedin.com/in/example</a></p>
+    <p style="text-align:center;">GitHub: <a href="https://github.com/example" target="_blank">github.com/example</a></p>
   </section>
 
   <footer>
